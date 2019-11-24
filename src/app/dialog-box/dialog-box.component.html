@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="ID " [disabled] ="disable" [(ngModel)] ="data.position">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Name " [disabled] ="disable" [(ngModel)] ="data.name">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="weight " [disabled] ="disable" [(ngModel)] ="data.weight">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Symbol " [disabled] ="disable" [(ngModel)] ="data.symbol">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button (click)="edit()" *ngIf="disable" >Edit</button>
+  <button mat-button [mat-dialog-close]="data" *ngIf="!disable" cdkFocusInitial>Save</button>
+</div>
